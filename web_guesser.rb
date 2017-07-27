@@ -10,9 +10,10 @@ get "/" do
 
   message = guess ? message_when_there_is_a(guess) : message_before_guessing
 
-  erb :index, locals: { message:  message,
-                        number:   @@random_number,
-                        guessing: @@guessing }
+  erb :index, locals: { message:       message,
+                        number:        @@random_number,
+                        opportunities: @@opportunities,
+                        guessing:      @@guessing }
 end
 
 get "/restart" do
@@ -35,6 +36,7 @@ def number_too_low
 end
 
 def correct_number
+  reduce_opportunities
   not_guessing_on_this_round
   "CORRECT! The secret number is #{RANDOM_NUMBER}."
 end
@@ -46,6 +48,7 @@ def number_too_high
 end
 
 def you_lose
+  reduce_opportunities
   not_guessing_on_this_round
   "YOU LOSE. The secret number was #{RANDOM_NUMBER}."
 end
