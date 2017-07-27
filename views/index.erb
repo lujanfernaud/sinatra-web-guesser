@@ -11,12 +11,12 @@
 
   <% if guessing %>
     <form>
-      <input type="text" name="guess">
+      <input type="text" name="guess" autofocus>
       <input type="submit" value="Guess!">
     </form>
   <% else %>
     <form action="/restart">
-      <input type="submit" value="Start Again">
+      <input type="submit" value="Start Again" autofocus>
     </form>
   <% end %>
 
