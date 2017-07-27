@@ -8,10 +8,14 @@
 
   <p><%= message %></p>
 
-  <form>
-    <input type="text" name="guess">
-    <input type="submit" value="Guess!">
-  </form>
+  <% if guessing %>
+    <form>
+      <input type="text" name="guess">
+      <input type="submit" value="Guess!">
+    </form>
+  <% else %>
+    <a href="/restart">Start Again</a>
+  <% end %>
 
 </body>
 </html>
