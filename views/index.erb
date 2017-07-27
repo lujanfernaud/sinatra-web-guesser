@@ -7,7 +7,12 @@
 <body>
 
   <p>Opportunities: <%= opportunities %></p>
+
   <p><%= message %></p>
+
+  <% if cheat %>
+    <p>Hint hint! <%= number %></p>
+  <% end %>
 
   <% if guessing %>
     <form>

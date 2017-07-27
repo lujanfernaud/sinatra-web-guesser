@@ -7,13 +7,15 @@ require "sinatra/reloader"
 
 get "/" do
   guess = params["guess"]
+  cheat = params["cheat"]
 
   message = guess ? message_when_there_is_a(guess) : message_before_guessing
 
   erb :index, locals: { message:       message,
                         number:        @@random_number,
                         opportunities: @@opportunities,
-                        guessing:      @@guessing }
+                        guessing:      @@guessing,
+                        cheat:         cheat }
 end
 
 get "/restart" do
