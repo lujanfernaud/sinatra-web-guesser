@@ -15,7 +15,9 @@
       <input type="submit" value="Guess!">
     </form>
   <% else %>
-    <a href="/restart">Start Again</a>
+    <form action="/restart">
+      <input type="submit" value="Start Again">
+    </form>
   <% end %>
 
 </body>
