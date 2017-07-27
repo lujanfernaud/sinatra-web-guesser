@@ -22,7 +22,7 @@ get "/restart" do
 end
 
 def message_when_there_is_a(guess)
-  case guess <=> RANDOM_NUMBER
+  case guess <=> @@random_number
   when -1 then number_too_low
   when  0 then correct_number
   when  1 then number_too_high
@@ -38,7 +38,7 @@ end
 def correct_number
   reduce_opportunities
   not_guessing_on_this_round
-  "CORRECT! The secret number is #{RANDOM_NUMBER}."
+  "CORRECT! The secret number is #{@@random_number}."
 end
 
 def number_too_high
@@ -50,7 +50,7 @@ end
 def you_lose
   reduce_opportunities
   not_guessing_on_this_round
-  "YOU LOSE. The secret number was #{RANDOM_NUMBER}."
+  "YOU LOSE. The secret number was #{@@random_number}."
 end
 
 def opportunities?
